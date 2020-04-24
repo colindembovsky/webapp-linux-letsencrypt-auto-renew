@@ -1,6 +1,6 @@
 # Azure Webapp for Linux LetsEncrypt Auto Renew
 
-Details in this (blog post](https://colinsalmcorner.com/letsencrypt-auto-renewal-for-azure-web-apps-for-linux/).
+Details in this [blog post](https://colinsalmcorner.com/letsencrypt-auto-renewal-for-azure-web-apps-for-linux/).
 
 > Note: At present, I have tested the certificate registration, but not yet the renewal. Use at your own risk!
 
