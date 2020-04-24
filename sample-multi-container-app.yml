@@ -1,0 +1,26 @@
+version: '3.3'
+
+services:
+  app: # this name should be the value for APP_CONTAINER_NAME in the nginx config
+    image: myregistry/myapp:1.0.0 # registry for your application image
+    ports: 
+    - "2368:2368" # port your app listens on (the EXPOSE port); the value for APP_EXPOSE_PORT in the nginx config
+    restart: always
+
+  nginx:
+    depends_on:
+    - app
+    image: myregistry/my-nginx:latest # registry for your custom nginx with the nginx config
+    ports:
+    - "0:80" # must be this mapping to route all traffic to the web app to nginx
+    restart: always
+
+  certbot:
+    depends_on:
+    - nginx
+    image: myregistry/my-certbot:latest # registry for your custom certbot image
+    ports:
+    - "80:80" # must be this mapping to respond to LetsEncrypt challenge
+    restart: always
+    volumes:
+    - ${WEBAPP_STORAGE_HOME}/certbot/letsencrypt:/etc/letsencrypt # maps to persistent storage
