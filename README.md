@@ -1,5 +1,7 @@
 # Azure Webapp for Linux LetsEncrypt Auto Renew
 
+> Note: At present, I have tested the certificate registration, but not yet the renewal. Use at your own risk!
+
 ## Problem Statement
 It is critical to secure web applications - and [LetsEncrypt](https://letsencrypt.org/) offers free certificates. However, these certificates have a 90 day expiration date, meaning you have to renew them every 90 days.
 
